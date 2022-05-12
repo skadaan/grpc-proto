@@ -4,6 +4,7 @@ package customer;
 
 service CustomerService {
   rpc CreateCustomer (CreateCustomerRequest) returns (CreateCustomerResponse) {}
+  rpc GetCustomer (GetCustomerRequest) returns (GetCustomerResponse) {}
 }
 
 message CreateCustomerRequest {
@@ -16,4 +17,15 @@ message CreateCustomerResponse {
   int32 status = 1;
   repeated string error = 2;
   int32 id = 3;
+}
+
+message GetCustomerRequest {
+  string phoneNumber = 1;
+}
+
+message GetCustomerResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 id = 3;
+  map<string, string> data = 4;
 }
