@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package customer;
+
+service CustomerService {
+  rpc CreateCustomer (CreateCustomerRequest) returns (CreateCustomerResponse) {}
+}
+
+message CreateCustomerRequest {
+  string phoneNumber = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
+
+message CreateCustomerResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 id = 3;
+}
